@@ -9,13 +9,14 @@ class VersionTest extends \Doctrine\ODM\MongoDB\Tests\BaseTest
 {
     public function tearDown()
     {
-        global $concurrentRequestLogic;
-        if (isset($concurrentRequestLogic)) {
-            unset($concurrentRequestLogic);
+        global $concurrentPHPRequestSimulatedLogic;
+        if (isset($concurrentPHPRequestSimulatedLogic)) {
+            unset($concurrentPHPRequestSimulatedLogic);
         }
-        unset($concurrentRequestLogic);
+        unset($concurrentPHPRequestSimulatedLogic);
         parent::tearDown();
     }
+    
     public function testVersioningWhenManipulatingEmbedMany()
     {
         $expectedVersion = 1;
